@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siga Verde - Início</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body { 
+    margin:0; 
+    font-family:'Poppins', sans-serif; 
+    background: linear-gradient(160deg, #f0f4f8, #e0f2f1); 
+    color:#333; 
+    overflow-x:hidden; 
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color:#fff; 
+    text-align:center;
+    padding:80px 20px 60px 20px;
+    border-bottom-left-radius:50px; 
+    border-bottom-right-radius:50px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  }
+  .header h1 { font-family:'Orbitron', sans-serif; font-size:3rem; margin-bottom:10px; }
+  .header p { font-size:1.2rem; opacity:0.9; }
+
+  /* Entry buttons */
+  .entry-buttons { margin-top:50px; display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+  .entry-buttons a { padding:15px 35px; border-radius:40px; font-weight:600; text-decoration:none; transition:0.4s; display:flex; align-items:center; gap:10px; }
+  .btn-primary { background:#27ae60; color:#fff; }
+  .btn-primary:hover { background:#2ecc71; transform:translateY(-5px) scale(1.05); }
+  .btn-secondary { background:#a5d6a7; color:#1b5e20; }
+  .btn-secondary:hover { background:#81c784; transform:translateY(-5px) scale(1.05); }
+
+  /* Quiz cards */
+  main.main-content { 
+    display:flex; 
+    flex-wrap:wrap; 
+    justify-content:center; 
+    gap:25px; 
+    padding:60px 20px; 
+  }
+  main.main-content .card {
+    background:#fff; 
+    width:260px; 
+    padding:25px 20px;
+    border-radius:25px; 
+    box-shadow:0 15px 35px rgba(0,0,0,0.08);
+    transition:0.5s; 
+    text-align:center; 
+    cursor:pointer;
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+  }
+  main.main-content .card:hover { 
+    transform:translateY(-10px) scale(1.02); 
+    box-shadow:0 25px 50px rgba(0,0,0,0.15); 
+  }
+  main.main-content .card h3 { color:#27ae60; margin-bottom:5px; }
+  main.main-content .card p { font-size:0.95rem; opacity:0.85; }
+
+  main.main-content .card i {
+    font-size:3rem;
+    color:#27ae60;
+  }
+
+  /* Footer */
+  footer.footer { 
+    display:flex; 
+    justify-content:space-around; 
+    padding:15px 0; 
+    background:#27ae60; 
+    color:#fff; 
+    position:fixed; 
+    bottom:0; 
+    width:100%; 
+    border-top-left-radius:20px; 
+    border-top-right-radius:20px;
+  }
+  footer.footer a { 
+    text-decoration:none; 
+    color:#fff; 
+    font-size:0.85rem; 
+    display:flex; 
+    flex-direction:column; 
+    align-items:center; 
+    transition:0.2s; 
+  }
+  footer.footer a.active { font-weight:700; }
+  footer.footer a:hover { transform:translateY(-3px); }
+  footer.footer a span { margin-top:5px; font-size:0.75rem; }
+
+  @media(max-width:768px){ 
+    main.main-content{flex-direction:column;align-items:center;} 
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Siga Verde</h1>
+  <p>Pequenas ações, grande impacto 🌿</p>
+  <div class="entry-buttons">
+    <a href="dicas.html" class="btn-primary"><i class="fas fa-leaf"></i>Ver Dicas</a>
+    <a href="rastreamento.html" class="btn-secondary"><i class="fas fa-truck"></i>Rastrear Caminhão</a>
+    <a href="quiz.html" class="btn-primary"><i class="fas fa-clipboard-list"></i>Fazer Quiz</a>
+  </div>
+</header>
+
+<main class="main-content">
+  <div class="card">
+    <i class="fas fa-glass-whiskey"></i>
+    <h3>Você sabia?</h3>
+    <p>Qual dessas ações economiza mais energia: desligar a TV ou o carregador da tomada?</p>
+  </div>
+
+  <div class="card">
+    <i class="fas fa-water"></i>
+    <h3>Desafio Verde</h3>
+    <p>Quantos litros de água podemos economizar tomando banho em 5 minutos em vez de 10?</p>
+  </div>
+
+  <div class="card">
+    <i class="fas fa-globe-americas"></i>
+    <h3>Curiosidade</h3>
+    <p>Qual país recicla mais de 50% do seu lixo urbano: Alemanha, Brasil ou EUA?</p>
+  </div>
+
+  <div class="card" onclick="window.location.href='quiz.html'">
+    <i class="fas fa-clipboard-list"></i>
+    <h3>Teste seus conhecimentos</h3>
+    <p>Clique aqui para fazer nosso quiz sustentável! 📝</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <a href="index.html" class="active">🏠<span>Início</span></a>
+  <a href="rastreamento.html">📍<span>Rastrear</span></a>
+  <a href="dicas.html">🌱<span>Dicas</span></a>
+  <a href="perfil.html">👤<span>Perfil</span></a>
+</footer>
+
+</body>
+</html>
