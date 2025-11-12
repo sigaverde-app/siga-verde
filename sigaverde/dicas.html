@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dicas Sustentáveis - Siga Verde</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body { background:#f0f4f8; margin:0; color:#333; font-family:'Poppins', sans-serif; }
+  
+  header.header {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color:#fff;
+    padding:40px 20px;
+    text-align:center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  header.header h1 { font-family:'Orbitron', sans-serif; font-size:2.5rem; }
+  header.header p { font-size:1.1rem; opacity:0.9; margin-top:5px; }
+
+  main.tips-content {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+    padding:30px 20px;
+  }
+
+  .tip-card {
+    background:#fff;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    text-align:center;
+    transition:0.3s;
+  }
+  .tip-card:hover { transform: translateY(-8px); box-shadow:0 15px 30px rgba(0,0,0,0.15); }
+  .tip-card img { width:60px; margin-bottom:15px; }
+  .tip-card h3 { color:#27ae60; margin-bottom:10px; }
+  .tip-card p { font-size:0.95rem; line-height:1.4; opacity:0.85; }
+
+  footer.footer {
+    display:flex;
+    justify-content:space-around;
+    padding:15px 0;
+    background:#27ae60;
+    color:#fff;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+  }
+  footer.footer a {
+    text-decoration:none;
+    color:#fff;
+    font-size:0.85rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    transition:0.2s;
+  }
+  footer.footer a.active { font-weight:700; }
+  footer.footer a:hover { transform:translateY(-3px); }
+  footer.footer a span { margin-top:5px; font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>Dicas Sustentáveis</h1>
+    <p>Aprenda pequenas atitudes que fazem grande diferença 🌱</p>
+  </header>
+
+  <!-- Conteúdo das Dicas -->
+  <main class="tips-content">
+    <div class="tip-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Reciclar">
+      <h3>Separe o Lixo</h3>
+      <p>Use lixeiras diferentes para papel, plástico, vidro e metal. Facilita a reciclagem.</p>
+    </div>
+
+    <div class="tip-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/929/929430.png" alt="Água">
+      <h3>Economize Água</h3>
+      <p>Feche torneiras ao escovar os dentes e reutilize água da chuva para regar plantas.</p>
+    </div>
+
+    <div class="tip-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1625/1625049.png" alt="Energia">
+      <h3>Reduza o Consumo de Energia</h3>
+      <p>Desligue aparelhos que não estão em uso e aproveite ao máximo a luz natural.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a href="index.html">🏠<span>Início</span></a>
+    <a href="rastreamento.html">📍<span>Rastrear</span></a>
+    <a href="dicas.html" class="active">🌱<span>Dicas</span></a>
+    <a href="perfil.html">👤<span>Perfil</span></a>
+  </footer>
+
+</body>
+</html>

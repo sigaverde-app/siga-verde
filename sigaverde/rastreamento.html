@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siga Verde - Rastrear Caminhão</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<style>
+  body { margin:0; font-family:'Poppins', sans-serif; background:#f0f4f8; color:#333; }
+  header.header { background: linear-gradient(135deg,#2ecc71,#27ae60); color:#fff; text-align:center; padding:40px 20px; border-bottom-left-radius:20px; border-bottom-right-radius:20px; }
+  header.header h1 { font-family:'Orbitron',sans-serif; font-size:2.5rem; margin-bottom:10px; }
+  header.header p { font-size:1rem; opacity:0.9; }
+  #map { height: 500px; margin: 20px; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.08); }
+  .update-btn { display:block; margin:0 auto 20px; padding:10px 25px; background:#27ae60; color:#fff; border:none; border-radius:30px; cursor:pointer; font-weight:600; transition:0.3s; }
+  .update-btn:hover { background:#2ecc71; transform:translateY(-2px); }
+  footer.footer { display:flex; justify-content:space-around; padding:15px 0; background:#27ae60; color:#fff; position:fixed; bottom:0; width:100%; border-top-left-radius:20px; border-top-right-radius:20px; }
+  footer.footer a { text-decoration:none; color:#fff; font-size:0.85rem; display:flex; flex-direction:column; align-items:center; transition:0.2s; }
+  footer.footer a.active { font-weight:700; }
+  footer.footer a:hover { transform:translateY(-3px); }
+  footer.footer a span { margin-top:5px; font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Rastrear Caminhão</h1>
+  <p>Veja onde está o caminhão de coleta agora 🌍</p>
+</header>
+
+<button class="update-btn" onclick="updateLocation()">Atualizar Localização</button>
+<div id="map"></div>
+
+<footer class="footer">
+  <a href="index.html">🏠<span>Início</span></a>
+  <a href="rastreamento.html" class="active">📍<span>Rastrear</span></a>
+  <a href="dicas.html">🌱<span>Dicas</span></a>
+  <a href="perfil.html">👤<span>Perfil</span></a>
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+let map = L.map('map').setView([0,0],2);
+let userMarker;
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+function updateLocation(){
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        map.setView([lat,lng],15);
+        if(userMarker){
+          userMarker.setLatLng([lat,lng]);
+        } else {
+          userMarker = L.marker([lat,lng]).addTo(map).bindPopup("Você está aqui!").openPopup();
+        }
+      },
+      err => {
+        console.error("Erro ao obter localização:", err);
+        alert("Não foi possível obter sua localização.");
+      }
+    );
+  } else {
+    alert("Geolocalização não suportada neste navegador.");
+  }
+}
+
+// Atualiza localização automaticamente ao abrir a página
+updateLocation();
+</script>
+
+</body>
+</html>
